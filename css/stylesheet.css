@@ -1,0 +1,128 @@
+@font-face {
+    font-family: 'MeteoconsRegular';
+    src: url('../fonts/meteocons-webfont.eot');
+    src: url('../fonts/meteocons-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/meteocons-webfont.woff') format('woff'),
+         url('../fonts/meteocons-webfont.ttf') format('truetype'),
+         url('../fonts/meteocons-webfont.svg#MeteoconsRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.icon {
+  font-size: 100px;
+}
+
+.icon:before {
+	font-family: 'MeteoconsRegular';
+	content: attr(data-icon);
+}
+
+.icon:hover {
+  cursor: default !important;
+  text-decoration: none !important;
+  color: white;
+}
+
+html,
+body {
+	width: 100%;
+	height: 100%;
+}
+
+.text-light {
+  color: white;
+}
+
+.text-accent {
+  color: black;
+}
+
+p {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+#weatherBox {
+  display: flex;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.weatherBoxRow {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.temperature {
+  margin-top: 0px;
+  font-weight: bold;
+}
+
+.details {
+  margin-top: 0px;
+  font-weight: 600;
+}
+
+.getWeather {
+  background-color: #7abc84;
+  border: 4px solid white;
+  color: white;
+  padding: 5px;
+}
+
+.getWeather:hover {
+  cursor: pointer;
+}
+
+.settingsContainer {
+  position: absolute;
+  max-width: 100vw;
+  top: 10px;
+  right: 0;
+  text-align: right;
+}
+
+.unitToggle {
+  font-size: 18px;
+}
+
+.unitToggle:hover {
+  cursor: pointer;
+}
+
+.glyphicon-refresh {
+  cursor: pointer;
+}
+
+/* BACKGROUNDS */
+
+.preWeather {
+  background-image: url("../img/default.png");
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+.sunny {
+	background-image: url("../img/sun.png");
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+.cloudy {
+	background-image: url("../img/cloud.png");
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+.rainy {
+	background-image: url("../img/rain.png");
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+.snowy {
+	background-image: url("../img/snow.png");
+	background-size: cover;
+	background-repeat: no-repeat;
+}
