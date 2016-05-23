@@ -24,8 +24,7 @@ function getLocation() {
 function getCoordinates(position) {
   currentLat = (position.coords.latitude).toFixed(2);
   currentLong = (position.coords.longitude).toFixed(2);
-  //currentLat = 36.16;
-  //currentLong = -115.13;
+
   path = 	"http://api.openweathermap.org/data/2.5/weather?lat=" +
           currentLat +
           "&lon=" +
@@ -68,7 +67,11 @@ function getWeather(){
     //location
     var cityPath = "http://nominatim.openstreetmap.org/reverse?format=json&lat=" + currentLat + "&lon=" + currentLong;
     $.getJSON(cityPath,function(json){
-      $(".location").html("<span class='glyphicon glyphicon-map-marker'></span> " + json.address.suburb);
+      if (json.address.suburb) {
+        $(".location").html("<span class='glyphicon glyphicon-map-marker'></span> " + json.address.suburb);
+      } else {
+        $(".location").html("<span class='glyphicon glyphicon-map-marker'></span> " + weather.name);
+      }
     });
 
     //temperature
@@ -80,47 +83,60 @@ function getWeather(){
     //change background and icon according to weather
     switch (json.weather[0].icon) {
       case "01d":
-      case "01n":
         //change background
-        bg.className = "sunny";
+        bg.className = "clear";
         //change icon
         $(".icon").attr("data-icon", "B");
         break;
+      case "01n":
+        bg.className = "clear-n";
+        $(".icon").attr("data-icon", "C");
+        break;
       case "02d":
+        bg.className = "partlyCloudy";
+        $(".icon").attr("data-icon", "H");
+        break;
       case "02n":
+        bg.className = "partlyCloudy-n";
+        $(".icon").attr("data-icon", "I");
+        break;
       case "03d":
-      case "03n":
-      case "50d":
-      case "50n":
-        //change background
         bg.className = "cloudy";
-        //change icon
+        $(".icon").attr("data-icon", "N");
+        break;
+      case "03n":
+        bg.className = "cloudy-n";
         $(".icon").attr("data-icon", "N");
         break;
       case "04d":
-      case "04n":
-        //change background
         bg.className = "cloudy";
-        //change icon
+        $(".icon").attr("data-icon", "N");
+        break;
+      case "04n":
+        bg.className = "cloudy-n";
         $(".icon").attr("data-icon", "Y");
         break;
       case "09d":
       case "09n":
       case "10d":
       case "10n":
+        bg.className = "rainy";
+        $(".icon").attr("data-icon", "R");
+        break;
       case "11d":
       case "11n":
-        //change background
-        bg.className = "rainy";
-        //change icon
-        $(".icon").attr("data-icon", "R");
+        bg.className = "lightning";
+        $(".icon").attr("data-icon", "Z");
         break;
       case "13d":
       case "13n":
-        //change background
         bg.className = "snowy";
-        //change icon
         $(".icon").attr("data-icon", "X");
+        break;
+      case "50d":
+      case "50n":
+        bg.className = "foggy";
+        $(".icon").attr("data-icon", "M");
         break;
     } //end of switch
 

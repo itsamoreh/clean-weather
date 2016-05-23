@@ -24,6 +24,12 @@
   color: white;
 }
 
+@media (max-width: 500px) {
+  .weatherBoxRow {
+    background-color: RGBA(0, 0, 0, 0.19);
+  }
+}
+
 html,
 body {
 	width: 100%;
@@ -52,6 +58,8 @@ p {
 .weatherBoxRow {
   width: 100%;
   margin: 0 auto;
+  padding: 20px;
+  border-radius: 2%;
 }
 
 .temperature {
@@ -97,26 +105,68 @@ p {
 
 /* BACKGROUNDS */
 
-.preWeather {
-  background-image: url("../img/default.png");
+.welcome {
+  background-image: url("../img/welcome.png");
 	background-size: cover;
 	background-repeat: no-repeat;
 }
 
-.sunny {
-	background-image: url("../img/sun.png");
+.welcome-n {
+  background-image: url("../img/welcome-n.png");
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+.clear {
+	background-image: url("../img/clear.png");
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+.clear-n {
+	background-image: url("../img/clear-n.png");
 	background-size: cover;
 	background-repeat: no-repeat;
 }
 
 .cloudy {
-	background-image: url("../img/cloud.png");
+	background-image: url("../img/cloudy.png");
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+.cloudy-n {
+	background-image: url("../img/cloudy-n.png");
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+.foggy {
+	background-image: url("../img/foggy.png");
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+.partlyCloudy {
+	background-image: url("../img/partlyCloudy.png");
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+.partlyCloudy-n {
+	background-image: url("../img/partlyCloudy-n.png");
 	background-size: cover;
 	background-repeat: no-repeat;
 }
 
 .rainy {
 	background-image: url("../img/rain.png");
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+.lightning {
+	background-image: url("../img/lightning.png");
 	background-size: cover;
 	background-repeat: no-repeat;
 }
