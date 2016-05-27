@@ -1,6 +1,7 @@
 //OWM API CALL http://api.openweathermap.org/data/2.5/forecast/city?id=524901&APPID=d25200ee6121cc410e754dbf6ffd0783
 
 //initialize variables
+var ip
 var path;
 var currentLat;
 var currentLong;
@@ -13,25 +14,20 @@ var button = document.getElementById("button");
 
 //get location function
 function getLocation() {
-  if (navigator.geolocation) {
-    //getCoordinates is run here
-    navigator.geolocation.getCurrentPosition(getCoordinates);
-  } else {
-    alert("Cannot get your location.");
-  }
-}
+  $.getJSON('//www.geoplugin.net/json.gp?jsoncallback=?', function(data) {
+    //console.log(JSON.stringify(data, null, 2));
+    currentLat = data.geoplugin_latitude;
+    currentLong = data.geoplugin_longitude;
 
-function getCoordinates(position) {
-  currentLat = (position.coords.latitude).toFixed(2);
-  currentLong = (position.coords.longitude).toFixed(2);
+    path = 	"http://api.openweathermap.org/data/2.5/weather?lat=" +
+            currentLat +
+            "&lon=" +
+            currentLong +
+            "&APPID=d25200ee6121cc410e754dbf6ffd0783";
 
-  path = 	"http://api.openweathermap.org/data/2.5/weather?lat=" +
-          currentLat +
-          "&lon=" +
-          currentLong +
-          "&APPID=d25200ee6121cc410e754dbf6ffd0783";
-  //getWeather run here
-  getWeather();
+    getWeather();
+  });
+
 }
 
 function getWeather(){
@@ -62,17 +58,16 @@ function getWeather(){
     }
     var minutes = date.getMinutes().toString();
     minutes = minutes.length < 2 ? '0' + minutes : minutes;
-    $(".date").html("<span class='glyphicon glyphicon-calendar'></span> " + month + " " + date.getDate() + ", " + (date.getHours() - 12) + ":" + minutes );
+    var hours;
+    if (date.getHours() > 12) {
+      hours = (date.getHours() - 12);
+    } else {
+      hours = date.getHours();
+    }
+    $(".date").html("<span class='glyphicon glyphicon-calendar'></span> " + month + " " + date.getDate() + ", " + hours + ":" + minutes );
 
     //location
-    var cityPath = "http://nominatim.openstreetmap.org/reverse?format=json&lat=" + currentLat + "&lon=" + currentLong;
-    $.getJSON(cityPath,function(json){
-      if (json.address.suburb) {
-        $(".location").html("<span class='glyphicon glyphicon-map-marker'></span> " + json.address.suburb);
-      } else {
-        $(".location").html("<span class='glyphicon glyphicon-map-marker'></span> " + weather.name);
-      }
-    });
+    $(".location").html("<span class='glyphicon glyphicon-map-marker'></span> " + weather.name);
 
     //temperature
     $(".temperature").html(Math.floor(json.main.temp - 273.15) + "&deg;C");
