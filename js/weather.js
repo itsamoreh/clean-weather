@@ -136,7 +136,6 @@ function getWeather(){
     } //end of switch
 
   }); //end getWeather
-
 }
 
 function toFarenheit() {

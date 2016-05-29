@@ -7,54 +7,45 @@
 	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 	<meta name="description" content="Weather App">
 	<meta name="author" content="Amor Kumar">
-
 	<title>Weather App</title>
-
 	<!-- Bootstrap core CSS -->
 	<link href="css/bootstrap.min.css" rel="stylesheet">
 	<link href="css/stylesheet.css" rel="stylesheet">
-
 	<!-- jQuery -->
 	<script src="js/jquery-2.2.3.min.js"></script>
-
 </head>
 
 <body id="bg" class="welcome">
-
 	<div id="content" class="container-fluid">
-
 		<div class="row">
 					<div id="weatherBox" class="col-sm-4 col-sm-offset-4 text-center">
-
 						<div class="row weatherBoxRow">
-
 							<div class="col-sm-12">
 								<p class="date text-light"></p>
 							</div>
-
 							<div class="col-sm-12">
 								<p class="location text-light"></p>
 							</div>
-
 							<div class="col-sm-12">
 								<a class="icon text-light" data-icon=""></a>
 							</div>
-
 							<div class="col-sm-12">
 								<p class="temperature h1 text-light"></p>
 							</div>
-
 							<div class="col-sm-12">
 								<p onClick="getLocation()" id="button" class="getWeather details h2 text-light">Click here for the current weather</p>
 							</div>
-
 						</div>
-
 				</div>
 		</div>
-		<div class="row">
-			<div class="col-sm-12 settingsContainer">
+		<div class="row settingsContainer">
+			<div class="col-sm-12">
 				<p class="settings text-light"><span onClick="toFarenheit()" class="unitToggle">&deg; F </span>&nbsp;|&nbsp; <span onClick="getLocation()" class="glyphicon glyphicon-refresh"></span></p>
+			</div>
+		</div>
+		<div class="row footer">
+			<div class="col-sm-12">
+				<p class="text-light text-small text-center">Location based on IP address | Designed and built by Amor Kumar</p>
 			</div>
 		</div>
 	</div>
@@ -64,6 +55,5 @@
 	<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/weather.js"></script>
-
 </body>
 </html>

@@ -49,6 +49,12 @@ p {
   font-weight: bold;
 }
 
+.text-small {
+  font-size: 9px;
+}
+
+/* WEATHER BOX */
+
 #weatherBox {
   display: flex;
   align-items: center;
@@ -72,6 +78,8 @@ p {
   font-weight: 600;
 }
 
+/* GET WEATHER BUTTON */
+
 .getWeather {
   background-color: #7abc84;
   border: 4px solid white;
@@ -83,11 +91,13 @@ p {
   cursor: pointer;
 }
 
+/* SETTINGS */
+
 .settingsContainer {
   position: absolute;
   max-width: 100vw;
   top: 10px;
-  right: 0;
+  right: 15px;
   text-align: right;
 }
 
@@ -101,6 +111,16 @@ p {
 
 .glyphicon-refresh {
   cursor: pointer;
+}
+
+/* FOOTER */
+
+.footer {
+  position: absolute;
+  width: 100vw;
+  bottom: 10px;
+  right: 15px;
+  text-align: center;
 }
 
 /* BACKGROUNDS */
