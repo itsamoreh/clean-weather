@@ -1,5 +1,6 @@
 # clean-weather
-Clean weather app made for FCC Show the Local Weather challenge
+
+Clean weather app for the Freecodecamp challenge "Show the Local Weather"
 
 # screenshot
 ![screenshot](screenshot.png)
